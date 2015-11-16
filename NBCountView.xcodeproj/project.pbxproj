@@ -14,6 +14,7 @@
 		4452356F1BAE9A140075FFDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4452356D1BAE9A140075FFDD /* LaunchScreen.storyboard */; };
 		4452357A1BAE9A140075FFDD /* NBCountViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235791BAE9A140075FFDD /* NBCountViewTests.swift */; };
 		445235851BAE9A140075FFDD /* NBCountViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235841BAE9A140075FFDD /* NBCountViewUITests.swift */; };
+		445235961BAE9AA50075FFDD /* NBCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235951BAE9AA50075FFDD /* NBCountView.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		445235801BAE9A140075FFDD /* NBCountViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NBCountViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		445235841BAE9A140075FFDD /* NBCountViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBCountViewUITests.swift; sourceTree = "<group>"; };
 		445235861BAE9A140075FFDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		445235951BAE9AA50075FFDD /* NBCountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NBCountView.swift; path = Views/NBCountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		445235631BAE9A140075FFDD /* NBCountView */ = {
 			isa = PBXGroup;
 			children = (
+				445235921BAE9A5E0075FFDD /* Views */,
 				445235641BAE9A140075FFDD /* AppDelegate.swift */,
 				445235661BAE9A140075FFDD /* ViewController.swift */,
 				445235681BAE9A140075FFDD /* Main.storyboard */,
@@ -123,6 +126,14 @@
 				445235861BAE9A140075FFDD /* Info.plist */,
 			);
 			path = NBCountViewUITests;
+			sourceTree = "<group>";
+		};
+		445235921BAE9A5E0075FFDD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				445235951BAE9AA50075FFDD /* NBCountView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				445235961BAE9AA50075FFDD /* NBCountView.swift in Sources */,
 				445235671BAE9A140075FFDD /* ViewController.swift in Sources */,
 				445235651BAE9A140075FFDD /* AppDelegate.swift in Sources */,
 			);

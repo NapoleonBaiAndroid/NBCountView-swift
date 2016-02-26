@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/NapoleonBaiAndroid/NBCountView-swift"
   s.license      = "MIT"
   s.author             = { "NapoleonBai" => "napoleonbaiandroid@gmail.com" }
-  s.platform     = :ios, "7.0"
+  s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/NapoleonBaiAndroid/NBCountView-swift.git", :tag => "1.0.0" }
  s.source_files  = "NBCountView-swift", "NBCountView/Views/**/*"     
  s.requires_arc = true

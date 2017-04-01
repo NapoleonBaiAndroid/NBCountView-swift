@@ -14,7 +14,7 @@
 		4452356F1BAE9A140075FFDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4452356D1BAE9A140075FFDD /* LaunchScreen.storyboard */; };
 		4452357A1BAE9A140075FFDD /* NBCountViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235791BAE9A140075FFDD /* NBCountViewTests.swift */; };
 		445235851BAE9A140075FFDD /* NBCountViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235841BAE9A140075FFDD /* NBCountViewUITests.swift */; };
-		445235961BAE9AA50075FFDD /* NBCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235951BAE9AA50075FFDD /* NBCountView.swift */; settings = {ASSET_TAGS = (); }; };
+		445235961BAE9AA50075FFDD /* NBCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445235951BAE9AA50075FFDD /* NBCountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,13 +203,16 @@
 				TargetAttributes = {
 					445235601BAE9A140075FFDD = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0830;
 					};
 					445235741BAE9A140075FFDD = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0830;
 						TestTargetID = 445235601BAE9A140075FFDD;
 					};
 					4452357F1BAE9A140075FFDD = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0830;
 						TestTargetID = 445235601BAE9A140075FFDD;
 					};
 				};
@@ -412,6 +415,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lovely.forever.NBCountView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -423,6 +427,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lovely.forever.NBCountView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -434,6 +439,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lovely.forever.NBCountViewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NBCountView.app/NBCountView";
 			};
 			name = Debug;
@@ -446,6 +452,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lovely.forever.NBCountViewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NBCountView.app/NBCountView";
 			};
 			name = Release;
@@ -457,6 +464,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lovely.forever.NBCountViewUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = NBCountView;
 				USES_XCTRUNNER = YES;
 			};
@@ -469,6 +477,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lovely.forever.NBCountViewUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = NBCountView;
 				USES_XCTRUNNER = YES;
 			};
@@ -493,6 +502,7 @@
 				4452358B1BAE9A140075FFDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4452358C1BAE9A140075FFDD /* Build configuration list for PBXNativeTarget "NBCountViewTests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +511,7 @@
 				4452358E1BAE9A140075FFDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4452358F1BAE9A140075FFDD /* Build configuration list for PBXNativeTarget "NBCountViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +520,7 @@
 				445235911BAE9A140075FFDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

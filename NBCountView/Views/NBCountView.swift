@@ -10,14 +10,14 @@ import UIKit
 
 enum NBCountViewShowType{
     /// 圆角按钮
-    case FilletButton
+    case filletButton
     /// 圆形按钮
-    case CircleButton
+    case circleButton
 }
 
 struct NBCountConfig {
     /// 设置私有属性显示样式
-    private var mCountViewType : NBCountViewShowType = .FilletButton
+    fileprivate var mCountViewType : NBCountViewShowType = .filletButton
     var countViewShowType : NBCountViewShowType{
         get{
             return mCountViewType
@@ -28,7 +28,7 @@ struct NBCountConfig {
     }
     
     /// 设置私有属性TintColor
-    private var mTintColor : UIColor = UIColor.greenColor()
+    fileprivate var mTintColor : UIColor = UIColor.green
     var tintColor : UIColor {
         get{
             return mTintColor
@@ -56,15 +56,15 @@ class NBCountView : UIView ,UITextFieldDelegate{
 
     
     /// 设置默认的两个按钮以及输入框
-    private var lessBtn : UIButton = UIButton.init(type:.Custom)
-    private var addBtn : UIButton = UIButton.init(type:.Custom)
-    private var countTextField : UITextField = UITextField.init()
+    fileprivate var lessBtn : UIButton = UIButton.init(type:.custom)
+    fileprivate var addBtn : UIButton = UIButton.init(type:.custom)
+    fileprivate var countTextField : UITextField = UITextField.init()
     
-    private var mViewConfig : NBCountConfig = NBCountConfig()
+    fileprivate var mViewConfig : NBCountConfig = NBCountConfig()
     /// 修改之前的值
-    private var updateAgainValue = 0
+    fileprivate var updateAgainValue = 0
     /// 当前显示值,缺省为0
-    private var mCurrentValue : Int = 0
+    fileprivate var mCurrentValue : Int = 0
     /// 当前显示值,动态设置
     var currentValue : Int{
         get{
@@ -94,15 +94,15 @@ class NBCountView : UIView ,UITextFieldDelegate{
     }
 
     /// 当前数值改变回调(得到当前显示的数量)
-    var notifyUpdateCurrentValue : ((currentValue : Int) ->Void)!
+    var notifyUpdateCurrentValue : ((_ currentValue : Int) ->Void)!
     /// 当前数值改变时回调(得到的是每次更改的数量)
-    var notifyUpdateStepValue : ((updateStepValue : Int) -> Void)!
+    var notifyUpdateStepValue : ((_ updateStepValue : Int) -> Void)!
     /**
     无参构造函数
     */
     convenience init(){
         //默认调用init frame
-        self.init(frame: CGRectZero)
+        self.init(frame: CGRect.zero)
     }
     
     /**
@@ -127,42 +127,42 @@ class NBCountView : UIView ,UITextFieldDelegate{
     创建UI
     */
     func buildUI(){
-        lessBtn = UIButton.init(type: UIButtonType.Custom)
-        addBtn = UIButton.init(type: .Custom)
+        lessBtn = UIButton.init(type: UIButtonType.custom)
+        addBtn = UIButton.init(type: .custom)
         countTextField = UITextField.init()
         
-        lessBtn.setTitle("-", forState: .Normal)
-        addBtn.setTitle("+", forState: .Normal)
+        lessBtn.setTitle("-", for: UIControlState())
+        addBtn.setTitle("+", for: UIControlState())
         countTextField.text = "\(mCurrentValue)"
         updateAgainValue = mCurrentValue
         
-        lessBtn.titleLabel?.font = UIFont.boldSystemFontOfSize(30)
-        addBtn.titleLabel?.font = UIFont.boldSystemFontOfSize(30)
-        countTextField.textAlignment = .Center
-        countTextField.keyboardType = .NumberPad
+        lessBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
+        addBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
+        countTextField.textAlignment = .center
+        countTextField.keyboardType = .numberPad
         countTextField.delegate = self
-        countTextField .addTarget(self, action:"textFieldValueChange:", forControlEvents: .EditingChanged)
+        countTextField .addTarget(self, action:"textFieldValueChange:", for: .editingChanged)
         
         self.addSubview(lessBtn)
         self.addSubview(addBtn)
         self.addSubview(countTextField)
         
-        lessBtn.addTarget(self, action:"onClickLessBtn:", forControlEvents:.TouchUpInside)
-        addBtn.addTarget(self, action:"onClickAddBtn:", forControlEvents:.TouchUpInside)
+        lessBtn.addTarget(self, action:"onClickLessBtn:", for:.touchUpInside)
+        addBtn.addTarget(self, action:"onClickAddBtn:", for:.touchUpInside)
 
         //self.updateConfig()
         addAutoLayoutContas()
     }
     
-    func onClickLessBtn(lessBtn : UIButton){
+    func onClickLessBtn(_ lessBtn : UIButton){
         self.updateDisplayCurrentValue(-stepValue)
     }
     
-    func onClickAddBtn(addBtn : UIButton){
+    func onClickAddBtn(_ addBtn : UIButton){
         self.updateDisplayCurrentValue(stepValue)
     }
     
-    func updateDisplayCurrentValue(updateStepCount : Int){
+    func updateDisplayCurrentValue(_ updateStepCount : Int){
         countTextField.resignFirstResponder()
         //获取当前数值
         let currentValueInt = (countTextField.text! as NSString).integerValue
@@ -190,19 +190,19 @@ class NBCountView : UIView ,UITextFieldDelegate{
     */
     func updateConfig(){
         //如果这是第一种类型,也就是圆角按钮,设置边框的那种
-        if mViewConfig.countViewShowType == NBCountViewShowType.FilletButton {
-            self.layer.borderColor = mViewConfig.mTintColor.CGColor
+        if mViewConfig.countViewShowType == NBCountViewShowType.filletButton {
+            self.layer.borderColor = mViewConfig.mTintColor.cgColor
             self.layer.borderWidth = 1
             self.layer.cornerRadius = 5
             self.layer.masksToBounds = true
             
-            self.lessBtn.layer.borderColor = mViewConfig.mTintColor.CGColor
-            self.addBtn.layer.borderColor = mViewConfig.mTintColor.CGColor
+            self.lessBtn.layer.borderColor = mViewConfig.mTintColor.cgColor
+            self.addBtn.layer.borderColor = mViewConfig.mTintColor.cgColor
             self.lessBtn.layer.borderWidth = 1
             self.addBtn.layer.borderWidth = 1
             
-            self.lessBtn.setTitleColor(mViewConfig.mTintColor, forState:.Normal)
-            self.addBtn.setTitleColor(mViewConfig.mTintColor, forState:.Normal)
+            self.lessBtn.setTitleColor(mViewConfig.mTintColor, for:UIControlState())
+            self.addBtn.setTitleColor(mViewConfig.mTintColor, for:UIControlState())
         }else{
             //这是第二种类型,设置圆形按钮
             self.lessBtn.layer.masksToBounds = true
@@ -213,8 +213,8 @@ class NBCountView : UIView ,UITextFieldDelegate{
             self.lessBtn.backgroundColor = mViewConfig.mTintColor
             self.addBtn.backgroundColor = mViewConfig.mTintColor
             
-            self.lessBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-            self.addBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            self.lessBtn.setTitleColor(UIColor.white, for: UIControlState())
+            self.addBtn.setTitleColor(UIColor.white, for: UIControlState())
         }
     }
     
@@ -229,14 +229,14 @@ class NBCountView : UIView ,UITextFieldDelegate{
         let viewDicts = dictForViews([lessBtn,countTextField,addBtn])
         
         //设置水平布局,间距5,两个按钮宽度相等
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[lessBtn]-5-[countTextField]-5-[addBtn(lessBtn)]|", options:.DirectionLeadingToTrailing, metrics: nil, views: viewDicts))
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[lessBtn]-5-[countTextField]-5-[addBtn(lessBtn)]|", options:NSLayoutFormatOptions(), metrics: nil, views: viewDicts))
         //设置按钮高度
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[lessBtn]|", options:NSLayoutFormatOptions.DirectionLeadingToTrailing, metrics: nil, views: viewDicts))
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[countTextField]|", options:NSLayoutFormatOptions.DirectionLeadingToTrailing, metrics: nil, views: viewDicts))
-        self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[addBtn]|", options:NSLayoutFormatOptions.DirectionLeadingToTrailing, metrics: nil, views: viewDicts))
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[lessBtn]|", options:NSLayoutFormatOptions(), metrics: nil, views: viewDicts))
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[countTextField]|", options:NSLayoutFormatOptions(), metrics: nil, views: viewDicts))
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[addBtn]|", options:NSLayoutFormatOptions(), metrics: nil, views: viewDicts))
         
         //设置按钮宽高相等
-        self.addConstraint(NSLayoutConstraint.init(item:lessBtn, attribute: NSLayoutAttribute.Width, relatedBy: .Equal, toItem: lessBtn, attribute:NSLayoutAttribute.Height, multiplier: 1.0, constant: 0))
+        self.addConstraint(NSLayoutConstraint.init(item:lessBtn, attribute: NSLayoutAttribute.width, relatedBy: .equal, toItem: lessBtn, attribute:NSLayoutAttribute.height, multiplier: 1.0, constant: 0))
     }
     
     /**
@@ -244,13 +244,13 @@ class NBCountView : UIView ,UITextFieldDelegate{
     - parameter objecs: 数组对象 eg:[1,2,3]
     - returns: 键值对对象 eg:["1":1,"2":2,"3":3]
     */
-    func dictForViews(objecs:[AnyObject]) -> [String : AnyObject] {
+    func dictForViews(_ objecs:[AnyObject]) -> [String : AnyObject] {
         var count:UInt32 = 0
         var dicts:[String : AnyObject] = [:]
         let ivars = class_copyIvarList(self.classForCoder, &count)
         for var i = 0; i < Int(count); ++i{
             let obj = object_getIvar(self, ivars[i])
-            let name = String.fromCString(ivar_getName(ivars[i]))!
+            let name = String(cString: ivar_getName(ivars[i]))
             dicts[name] = obj
             if dicts.count == objecs.count{
                 break
@@ -266,7 +266,7 @@ class NBCountView : UIView ,UITextFieldDelegate{
     
     - returns: 当前textfield是否能编辑,true为可编辑,false为不可编辑
     */
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool{
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
         return isEditTextField
     }
     /**
@@ -274,7 +274,7 @@ class NBCountView : UIView ,UITextFieldDelegate{
     
     - parameter textField: <#textField description#>
     */
-    func textFieldDidBeginEditing(textField: UITextField){
+    func textFieldDidBeginEditing(_ textField: UITextField){
         //如果开始输入时,为0,就去掉0
         let changedValue = (textField.text! as NSString).integerValue
         if changedValue == 0{
@@ -286,7 +286,7 @@ class NBCountView : UIView ,UITextFieldDelegate{
     
     - parameter textField: <#textField description#>
     */
-    func textFieldDidEndEditing(textField: UITextField){
+    func textFieldDidEndEditing(_ textField: UITextField){
         //如果结束时没有任何输入,就置为0
         if textField.text!.isEmpty{
             textField.text = "0"
@@ -294,7 +294,7 @@ class NBCountView : UIView ,UITextFieldDelegate{
     }
     
     
-    func textFieldValueChange(textField : UITextField){
+    func textFieldValueChange(_ textField : UITextField){
         let changedValue = (textField.text! as NSString).integerValue
         let changedStep = changedValue - self.updateAgainValue
         self.mCurrentValue = changedValue

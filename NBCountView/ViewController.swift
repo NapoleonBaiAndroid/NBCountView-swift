@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var countView : NBCountView = NBCountView.init(frame: CGRectMake(50, 100, 200, 50))
+    var countView : NBCountView = NBCountView.init(frame: CGRect(x: 50, y: 100, width: 200, height: 50))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         
         countView.isEditTextField = true
         self.view.addSubview(countView)
-        countView.viewConfig = NBCountConfig(countViewShowType:.FilletButton,tintColor:UIColor.redColor())
+        countView.viewConfig = NBCountConfig(countViewShowType:.filletButton,tintColor:UIColor.red)
         countView.currentValue = 20
         countView.notifyUpdateStepValue = {(updateStepValue : Int) in
             print("更改的数量为:\(updateStepValue)")
@@ -27,10 +27,10 @@ class ViewController: UIViewController {
             print("当前显示数值为:\(currentValue)")
         }
         
-        let countView1 : NBCountView = NBCountView.init(frame: CGRectMake(50, 160, 120, 40))
+        let countView1 : NBCountView = NBCountView.init(frame: CGRect(x: 50, y: 160, width: 120, height: 40))
         self.view.addSubview(countView1)
         
-        countView1.viewConfig = NBCountConfig(countViewShowType:.CircleButton,tintColor:UIColor.greenColor())
+        countView1.viewConfig = NBCountConfig(countViewShowType:.circleButton,tintColor:UIColor.green)
         countView1.notifyUpdateStepValue = {(updateStepValue : Int) in
             print("更改的数量为:\(updateStepValue)")
         }
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
 
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         countView.resignFirstResponder()
     }
 
